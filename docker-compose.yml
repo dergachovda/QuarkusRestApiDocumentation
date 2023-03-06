@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: src/main/docker/Dockerfile.jvm
+    ports:
+      - "8080:8080"
+  redoc:
+    depends_on: [app]
+    image: "redocly/redoc"
+    ports:
+      - "8081:80"
+    environment:
+      - "SPEC_URL=http://localhost:8080/q/openapi.json"
+  swagger-ui:
+    depends_on:
+      - app
+    image: "swaggerapi/swagger-ui"
+    ports:
+     - "8082:8080"
+    environment:
+     - "SWAGGER_JSON_URL=http://localhost:8080/q/openapi.json"
