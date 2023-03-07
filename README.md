@@ -14,7 +14,7 @@ SmallRye already includes Swagger UI for dev mode by default(provide possibility
 ## ReDoc and Swagger UI as separate services
 This approach implemented in `redoc` branch.
 
-In this case SmallRye still generate OpenAPI specification but for render it we can use separate solutions.
+In this case, SmallRye still generates OpenAPI specification but to render it we can use separate solutions.
 
 ### ReDoc as a Docker container
 - http://localhost:8081/
